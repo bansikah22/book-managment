@@ -1,0 +1,92 @@
+/* src/components/BookManager.css */
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.form-input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.submit-button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+.book-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.book-table th,
+.book-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.book-table th {
+    background-color: #f2f2f2;
+}
+
+
+/* Add this to src/components/BookManager.css */
+.book-table button {
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.book-table button:hover {
+    background-color: #218838;
+}
+
+
+/* Add this to src/components/BookManager.css */
+.edit-button,
+.delete-button {
+    padding: 5px 10px;
+    margin-left: 5px; /* Add some space between buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-button {
+    background-color: #ffc107; /* Bootstrap warning color */
+    color: white;
+}
+
+.delete-button {
+    background-color: #dc3545; /* Bootstrap danger color */
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #e0a800; /* Darker yellow for hover effect */
+}
+
+.delete-button:hover {
+    background-color: #c82333; /* Darker red for hover effect */
+}

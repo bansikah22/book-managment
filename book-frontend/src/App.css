@@ -1,0 +1,108 @@
+.App {
+  text-align: center;
+}
+
+/* src/App.css */
+/* src/App.css */
+
+/* Existing styles... */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height */
+  background-color: #f0f0f0; /* Light background color */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white; /* White background for the form and table */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Make the container width responsive */
+  max-width: 600px; /* Maximum width for larger screens */
+}
+
+h1 {
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+form {
+  margin-bottom: 30px; /* Space below the form */
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
+  gap: 10px; /* Space between form elements */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Merge borders of table cells */
+}
+
+th, td {
+  border: 1px solid #ddd; /* Add border to table cells */
+  padding: 10px; /* Padding inside table cells */
+  text-align: left; /* Align text to the left */
+}
+
+th {
+  background-color: #007bff; /* Table header background color */
+  color: white; /* Table header text color */
+}
+
+tr:hover {
+  background-color: #f5f5f5; /* Hover effect for rows */
+}
+
+/* Media Queries */
+
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+  .container {
+      padding: 15px; /* Reduce padding on smaller screens */
+      width: 95%; /* Slightly increase the width */
+  }
+
+  h1 {
+      font-size: 1.5rem; /* Smaller heading size */
+  }
+
+  form {
+      gap: 8px; /* Less gap between form elements */
+  }
+
+  th, td {
+      padding: 8px; /* Less padding in table cells */
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+  h1 {
+      font-size: 1.2rem; /* Smaller heading size */
+  }
+
+  form {
+      flex-direction: column; /* Stack form elements vertically */
+  }
+
+  th, td {
+      font-size: 0.9rem; /* Smaller text in table cells */
+      padding: 6px; /* Less padding in table cells */
+  }
+
+  /* Adjust table responsiveness */
+  table {
+      font-size: 0.9rem; /* Smaller font for table */
+  }
+}
+
+
