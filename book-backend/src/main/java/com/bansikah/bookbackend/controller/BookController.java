@@ -17,8 +17,9 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:3001")
-@CrossOrigin(origins = {"http://localhost:3001", "http://frontend.localhost", "http://frontend.local"})
+//@CrossOrigin(origins = "http://frontend.localhost")
+//@CrossOrigin(origins = {"http://localhost:3001", "http://frontend.localhost", "http://frontend.local"})
+@CrossOrigin(origins = {"http://localhost:3001", "http://book-management.local"})
 @RequestMapping("/api/books")
 public class BookController {
 

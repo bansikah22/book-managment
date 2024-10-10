@@ -1,0 +1,5 @@
+apiVersion: v2
+name: book-management
+description: A Helm chart for deploying a Book Management System
+version: 0.1.0
+appVersion: "1.0"

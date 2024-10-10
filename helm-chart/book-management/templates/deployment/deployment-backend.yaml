@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-backend
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-backend
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-backend
+    spec:
+      containers:
+        - name: {{ .Release.Name }}-backend
+          image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}"
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://{{ .Release.Name }}-postgres:5432/{{ .Values.postgres.database }}
+            - name: SPRING_DATASOURCE_USERNAME
+              value: {{ .Values.postgres.username }}
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: {{ .Values.postgres.password }}
+          ports:
+            - containerPort: {{ .Values.backend.service.port }}
+        - name: logging-sidecar
+          image: fluent/fluentd:v1.13-1
+          env:
+            - name: FLUENTD_CONF
+              value: "fluent.conf"  # Adjust this to your configuration
+          volumeMounts:
+            - name: logs
+              mountPath: /var/log
+      volumes:
+        - name: logs
+          emptyDir: {}  # Use an empty directory for logging

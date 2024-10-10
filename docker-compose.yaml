@@ -28,7 +28,7 @@ services:
       - book-net
 
   book-backend:
-    image: bansikah/book-backend:1.0
+    image: bansikah/book-backend:1.1
     restart: always
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB}
@@ -42,7 +42,7 @@ services:
       - book-net
 
   book-frontend:
-    image: bansikah/book-frontend:1.0
+    image: bansikah/book-frontend:1.1
     restart: always
     labels:
       - "traefik.enable=true"

@@ -1,0 +1,33 @@
+environment: prod  
+
+replicaCount: 3  # Increase replicas for production
+
+frontend:
+  image:
+    repository: bansikah/book-frontend
+    tag: "1.1"
+  service:
+    port: 80
+  env:
+    REACT_APP_API_URL: "http://book-backend:8082/api"
+
+backend:
+  image:
+    repository: bansikah/book-backend
+    tag: "1.1"
+  service:
+    port: 8082
+
+postgres:
+  image:
+    repository: postgres
+    tag: latest
+  database: shopdb
+  username: postgresuser
+  password: postgrespass  
+
+discord:
+  webhookUrl: "https://discord.com/api/webhooks/your-webhook-url-prod"  # Update with your actual webhook URL
+
+ingress:
+  host: book-management.example.com

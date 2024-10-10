@@ -1,0 +1,34 @@
+environment: dev  
+
+replicaCount: 1
+
+frontend:
+  image:
+    repository: bansikah/book-frontend
+    tag: "1.2"
+  service:
+    port: 80
+  env:
+    REACT_APP_API_URL: "http://book-management.local"
+
+backend:
+  image:
+    repository: bansikah/book-backend
+    tag: "1.2"
+  service:
+    port: 8082
+
+postgres:
+  image:
+    repository: postgres
+    tag: latest
+  database: shopdb
+  username: postgresuser
+  password: postgrespass  
+
+discord:
+  webhookUrl: "https://discord.com/api/webhooks/your-webhook-url-dev"  # Update with your actual webhook URL
+
+ingress:
+  enabled: true
+  hosts: book-management.local

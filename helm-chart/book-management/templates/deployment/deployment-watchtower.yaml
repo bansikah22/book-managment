@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-watchtower
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-watchtower
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-watchtower
+    spec:
+      containers:
+        - name: watchtower
+          image: containrrr/watchtower:latest
+          command: ["--cleanup", "--interval", "60"]
+          env:
+            - name: DISCORD_WEBHOOK_URL
+              value: "{{ .Values.discord.webhookUrl }}"  # Discord URL from values
+          volumeMounts:
+            - name: docker-sock
+              mountPath: /var/run/docker.sock
+      volumes:
+        - name: docker-sock
+          hostPath:
+            path: /var/run/docker.sock
