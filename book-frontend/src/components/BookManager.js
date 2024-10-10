@@ -69,13 +69,13 @@ const BookManager = () => {
     const handleDownload = async (id) => {
         try {
             const response = await axios.get(`${backendUrl}/api/books/download/${id}`, {
-                responseType: 'blob',
+                responseType: 'blob', // Setting response type to blob for file download
             });
 
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', `book_${id}.pdf`);
+            link.setAttribute('download', `book_${id}.pdf`); // Modify filename as necessary
             document.body.appendChild(link);
             link.click();
             link.remove();
@@ -134,22 +134,23 @@ const BookManager = () => {
             <h3>Book List</h3>
             <table className="book-table">
                 <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>File Path</th>
-                        <th>Actions</th>
-                    </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>File Path</th>
+                    <th>Actions</th>
+                </tr>
                 </thead>
                 <tbody>
-                    {books.map((book) => (
-                        <tr key={book.id}>
-                            <td>{book.id}</td>
-                            <td>{book.title}</td>
-                            <td>{book.author}</td>
-                            <td>{book.filePath}</td>
-                            <td>
+                {books.map((book) => (
+                    <tr key={book.id}>
+                        <td>{book.id}</td>
+                        <td>{book.title}</td>
+                        <td>{book.author}</td>
+                        <td>{book.filePath}</td>
+                        <td>
+                            <div className="actions"> {/* Added: Wrap buttons in a div for flexbox styling */}
                                 <button onClick={() => handleDownload(book.id)} className="download-button">
                                     Download
                                 </button>
@@ -159,9 +160,10 @@ const BookManager = () => {
                                 <button onClick={() => handleDelete(book.id)} className="delete-button">
                                     Delete
                                 </button>
-                            </td>
-                        </tr>
-                    ))}
+                            </div>
+                        </td>
+                    </tr>
+                ))}
                 </tbody>
             </table>
         </div>

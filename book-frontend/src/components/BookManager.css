@@ -1,92 +1,116 @@
-/* src/components/BookManager.css */
+/* BookManager.css */
+
 .container {
-    max-width: 600px;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
     padding: 20px;
-    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
 }
 
 .book-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center; /* Center form items */
     margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px; /* Limit form width */
 }
 
 .form-input {
+    margin: 10px 0;
     padding: 10px;
-    border-radius: 5px;
+    width: 100%; /* Full width inputs */
     border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .submit-button {
-    padding: 10px;
-    background-color: #007bff;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green */
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    margin: 10px 0;
 }
 
 .submit-button:hover {
-    background-color: #0056b3;
+    background-color: #45a049; /* Darker green */
 }
 
 .book-table {
     width: 100%;
+    max-width: 1000px; /* Increased max-width for better alignment */
     border-collapse: collapse;
+    margin-top: 20px; /* Space above table */
 }
 
 .book-table th,
 .book-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    padding: 12px;
+    text-align: center; /* Center table text */
+    border: 1px solid #ddd; /* Table border */
 }
 
 .book-table th {
-    background-color: #f2f2f2;
+    background-color: #f2f2f2; /* Header background */
 }
 
+td {
+    position: relative; /* Allow for button positioning */
+}
 
-/* Add this to src/components/BookManager.css */
-.book-table button {
-    padding: 5px 10px;
-    background-color: #28a745;
+/* Flex container for action buttons */
+.actions {
+    display: flex;                /* Use flexbox for layout */
+    justify-content: space-around; /* Evenly distribute buttons */
+    align-items: center;         /* Center items vertically */
+    margin-top: 10px;           /* Space above buttons */
+}
+
+.download-button {
+    background-color: #4CAF50; /* Green */
     color: white;
     border: none;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 4px;
     cursor: pointer;
+    margin: 5px; /* Space between buttons */
 }
 
-.book-table button:hover {
-    background-color: #218838;
-}
-
-
-/* Add this to src/components/BookManager.css */
-.edit-button,
-.delete-button {
-    padding: 5px 10px;
-    margin-left: 5px; /* Add some space between buttons */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.download-button:hover {
+    background-color: #45a049; /* Darker green */
 }
 
 .edit-button {
-    background-color: #ffc107; /* Bootstrap warning color */
-    color: white;
-}
-
-.delete-button {
-    background-color: #dc3545; /* Bootstrap danger color */
-    color: white;
+    background-color: #ffeb3b; /* Yellow */
+    color: black;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px; /* Space between buttons */
 }
 
 .edit-button:hover {
-    background-color: #e0a800; /* Darker yellow for hover effect */
+    background-color: #fdd835; /* Darker yellow */
+}
+
+.delete-button {
+    background-color: #f44336; /* Red */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px; /* Space between buttons */
 }
 
 .delete-button:hover {
-    background-color: #c82333; /* Darker red for hover effect */
+    background-color: #e53935; /* Darker red */
 }
