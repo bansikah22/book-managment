@@ -29,7 +29,7 @@ public class SecurityConfig {
                 .oauth2Login(oauth2Login ->
                         oauth2Login
                                 .loginPage("/login")
-                                .defaultSuccessUrl("http://localhost:3001/home", true) // Redirect to frontend after login
+                                .defaultSuccessUrl("http://book-management.local/home", true) // Redirect to frontend after login
                 )
                 .logout(logout -> logout.logoutSuccessUrl("/login"));
         return http.build();
@@ -38,7 +38,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:3001")); // Allow the frontend origin
+        configuration.setAllowedOrigins(List.of("book-management.local")); // Allow the frontend origin
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Allow these methods
         configuration.setAllowCredentials(true); // Allow credentials (e.g., cookies, authorization headers)
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type", "X-CSRF-TOKEN")); // Allow specific headers
